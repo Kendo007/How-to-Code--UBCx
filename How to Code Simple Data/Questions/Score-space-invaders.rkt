@@ -36,7 +36,7 @@
                      (rectangle 20 10 "solid" "black"))))   ;main body
 
 (define TANK-HEIGHT/2 (/ (image-height TANK) 2))
-
+ 
 (define MISSILE (ellipse 5 15 "solid" "red"))
 
 (define ICUT (/ (image-width INVADER) 2))
@@ -46,7 +46,7 @@
 ;; Data Definitions:
 
 (define-struct tank (x dir))
-;; Tank is (make-tank Number Integer[-1, 1])
+;; Tank is (make-tank Number Integer{-1, 1})
 ;; interp. the tank location is x, HEIGHT - TANK-HEIGHT/2 in screen coordinates
 ;;         the tank moves TANK-SPEED pixels per clock tick left if dir -1, right if dir 1
 
@@ -87,7 +87,7 @@
   (... (missile-x m) (missile-y m)))
 
 (define-struct game (invaders missiles tank score))
-;; Game is (make-game  (listof Invader) (listof Missile) Tank)
+;; Game is (make-game  (listof Invader) (listof Missile) Tank Score)
 ;; interp. the current state of a space invaders game
 ;;         with the current invaders, missiles and tank position, score 
 
@@ -436,3 +436,5 @@
                                            (number->string (game-score g)))
                             24 "purple"))
                (/ WIDTH 2) (/ HEIGHT 2) BACKGROUND))
+
+(main G0)
